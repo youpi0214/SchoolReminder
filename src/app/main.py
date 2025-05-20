@@ -3,8 +3,8 @@ from typing import Optional
 from discord.ext import commands
 from discord.ext.commands import MemberConverter, RoleConverter
 
-from bot_logging import getLogger
-from config import DISCORD_TOKEN, getIntents
+from .bot_logging import getLogger
+from .config import DISCORD_TOKEN, getIntents
 
 logger = getLogger()
 bot = commands.Bot(command_prefix='$', intents=getIntents())
