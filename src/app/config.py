@@ -5,7 +5,14 @@ from dotenv import load_dotenv
 
 ### Load environment variables ###
 load_dotenv(verbose=True)
+
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
+if not DISCORD_TOKEN:
+    raise ValueError("DISCORD_TOKEN is not set in the environment variables. Please set it and try again.")
+
+BOT_NAME = os.getenv("BOT_NAME")
+if not BOT_NAME:
+    raise ValueError("BOT_NAME is not set in the environment variables. Please set it and try again.")
 
 ### Set up the intents ###
 intents = discord.Intents.default()
