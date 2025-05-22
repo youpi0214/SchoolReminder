@@ -30,6 +30,7 @@ intents.message_content = True
 intents.guilds = True
 intents.messages = True
 intents.guild_messages = True
+intents.members = True
 
 
 def getIntents():

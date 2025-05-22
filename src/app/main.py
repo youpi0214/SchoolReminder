@@ -1,5 +1,6 @@
 from typing import Optional
 
+import discord
 from discord.ext import commands
 from discord.ext.commands import MemberConverter, RoleConverter
 
@@ -25,10 +26,10 @@ async def list_roles(ctx: commands.Context):
 
 
 @bot.command(name='role_members')
-async def list_members_with_role(ctx, guild_role: RoleConverter):
+async def list_members_with_role(ctx, guild_role: discord.Role):
     """List all members of the given role for the given guild."""
-    logger.info('List members with role')
-    await ctx.send('Members of the role:')
+    response = rolesService.list_members_with_role(ctx, guild_role)
+    await ctx.send(embed=response, silent=True)
 
 
 @bot.command(name='member_roles')
